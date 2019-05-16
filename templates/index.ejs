@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D2 Gear</title>
+
+    <link rel="stylesheet" href="/assets/vendor/bulma/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="app">
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <router-link to="/" class="navbar-item">
+                <img src="/assets/images/logo.png" height="28">
+            </router-link>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <router-link to="/search" class="navbar-item">Search</router-link>
+            </div>
+        </div>
+    </nav>
+
+    <router-view></router-view>
+</div>
+
+<script src="/assets/vendor/vue/vue.js"></script>
+<script src="/assets/vendor/vue/vue-router.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
