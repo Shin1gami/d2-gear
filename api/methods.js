@@ -9,7 +9,7 @@ module.exports = {
         return (new api).call(`Destiny2/SearchDestinyPlayer/${platform}/${encodeURIComponent(name)}/`);
     },
 
-    D2Profile: function (platform, id) {
-        return (new api).call(`Destiny2/${platform}/Profile/${id}/`, {components: '100,200'});
+    D2Profile: function (platform, id, components) {
+        return (new api).call(`Destiny2/${platform}/Profile/${id}/`, {components: components});
     }
 };

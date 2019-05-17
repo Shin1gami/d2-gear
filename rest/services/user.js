@@ -12,6 +12,8 @@ module.exports = async function (fastify) {
                     xbox: user['xboxDisplayName'] || null,
                     psn: user['psnDisplayName'] || null
                 };
+            }).filter(user => {
+                return user.pc !== null || user.xbox !== null || user.psn !== null;
             })
         );
     });
