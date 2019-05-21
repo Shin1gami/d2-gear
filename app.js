@@ -30,3 +30,5 @@ module.exports = function (fastify, opts, next) {
     next();
 
 };
+
+//cls;npm run dev

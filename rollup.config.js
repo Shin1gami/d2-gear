@@ -1,5 +1,5 @@
 import {readdirSync} from 'fs';
-import {basename, resolve} from 'path';
+import {basename, extname, resolve} from 'path';
 
 import commonjs from 'rollup-plugin-commonjs';
 import VuePlugin from 'rollup-plugin-vue';
@@ -11,7 +11,9 @@ const PATH_PAGES = resolve(__dirname, 'public/pages/');
 
 let entryMap = {};
 readdirSync(PATH_SFC).forEach(file => {
-    entryMap[basename(file, '.vue')] = resolve(PATH_SFC, file);
+    if (extname(file) === '.vue') {
+        entryMap[basename(file, '.vue')] = resolve(PATH_SFC, file);
+    }
 });
 
 export default {
@@ -45,3 +47,5 @@ export default {
         })
     ]
 }
+
+//cls;rollup -c --environment BUILD:production

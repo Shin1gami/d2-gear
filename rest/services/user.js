@@ -3,8 +3,8 @@ module.exports = async function (fastify) {
     fastify.get('/user/:name', async (request, reply) => {
         let res = await fastify.api.D2Find(request.params.name);
 
-        reply.send(
-            res.Response.map(user => {
+        if (res.status === 200) {
+            res.data = res.data.map(user => {
                 return {
                     id: user['membershipId'],
                     name: user['displayName'] || null,
@@ -14,8 +14,10 @@ module.exports = async function (fastify) {
                 };
             }).filter(user => {
                 return user.pc !== null || user.xbox !== null || user.psn !== null;
-            })
-        );
+            });
+        }
+
+        reply.send(res);
     });
 
 };

@@ -77,9 +77,9 @@
 
                 fetch(`/api/user/${this.query}`)
                 .then(response => response.json())
-                .then(data => {
-                    this.items = data;
-                    this.count = data.length || 0;
+                .then(response => {
+                    this.items = response.data;
+                    this.count = response.data.length || 0;
                 });
             }
         }
